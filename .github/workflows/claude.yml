@@ -55,10 +55,10 @@ jobs:
           allowed_tools: "Bash"
           
           # Optional: Add custom instructions for Claude to customize its behavior for your project
-          # custom_instructions: |
-          #   Follow our coding standards
-          #   Ensure all new code has tests
-          #   Use TypeScript for new files
+          custom_instructions: |
+            このプロジェクトのCLAUDE.mdファイルに従って作業してください。
+            人間だけが読むコンテンツ（コメント、ドキュメント、説明など）は日本語で書いてください。
+            熟練のOSSエンジニアとして作業し、日本語でレスポンスしてください。
           
           # Optional: Custom environment variables for Claude
           # claude_env: |

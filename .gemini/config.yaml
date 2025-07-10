@@ -2,11 +2,9 @@
 # This configuration enables Japanese language support for code reviews
 
 $schema: "http://json-schema.org/draft-07/schema#"
-have_fun: true
 ignore_patterns: []
 code_review:
   disable: false
   # Configuration for Japanese language reviews
   language: ja
   review_style: detailed
-  comment_language: japanese

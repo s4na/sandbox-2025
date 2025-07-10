@@ -16,22 +16,22 @@ reviews:
   # Enable high-level summary
   high_level_summary: true
 
-  # Enable poem
+  # Disable poem
   poem: false
+
+  # Path filters (optional)
+  # You can specify which files to include or exclude from reviews
+  path_filters:
+    - "**/*"
+    - "!**/*.lock"
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/.git/**"
 
 # Chat settings
 chat:
   # Chat inherits the language setting from the top-level language setting
-
-# Path filters (optional)
-# You can specify which files to include or exclude from reviews
-path_filters:
-  - "**/*"
-  - "!**/*.lock"
-  - "!**/node_modules/**"
-  - "!**/dist/**"
-  - "!**/build/**"
-  - "!**/.git/**"
 
 # Set the tone of reviews
 tone_instructions: "Constructive and friendly"

@@ -9,49 +9,29 @@ reviews:
   # Enable automatic reviews
   auto_review:
     enabled: true
-    
-  # Review level settings
-  review_status: "all_files"
-  
+
+  # Review level settings - enable reviews for all files
+  review_status: true
+
   # Enable high-level summary
   high_level_summary: true
-  
+
   # Enable poem
   poem: false
-  
-  # Enable review details
-  review_details_enabled: true
-  
-  # Enable walkthrough
-  walkthrough: true
 
 # Chat settings
 chat:
-  # Set chat language to Japanese
-  language: ja
+  # Chat inherits the language setting from the top-level language setting
 
 # Path filters (optional)
 # You can specify which files to include or exclude from reviews
 path_filters:
-  # Include all files by default
-  included_files:
-    - "**/*"
-  
-  # Exclude common non-code files
-  excluded_files:
-    - "**/*.lock"
-    - "**/node_modules/**"
-    - "**/dist/**"
-    - "**/build/**"
-    - "**/.git/**"
+  - "**/*"
+  - "!**/*.lock"
+  - "!**/node_modules/**"
+  - "!**/dist/**"
+  - "!**/build/**"
+  - "!**/.git/**"
 
-# Additional settings
-settings:
-  # Set the tone of reviews (constructive, friendly)
-  tone: "constructive"
-  
-  # Enable inline comments
-  inline_comments: true
-  
-  # Enable suggestions
-  suggestions: true
+# Set the tone of reviews
+tone_instructions: "Constructive and friendly"

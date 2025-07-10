@@ -32,6 +32,8 @@ reviews:
 # Chat settings
 chat:
   # Chat inherits the language setting from the top-level language setting
+  auto_reply:
+    enabled: true
 
 # Set the tone of reviews
 tone_instructions: "Constructive and friendly"

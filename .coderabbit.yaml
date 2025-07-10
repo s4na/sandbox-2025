@@ -1,0 +1,37 @@
+# CodeRabbit Configuration
+# This file configures CodeRabbit to provide reviews in Japanese
+
+# Language settings
+language: ja
+
+# Review settings
+reviews:
+  # Enable automatic reviews
+  auto_review:
+    enabled: true
+
+  # Review level settings - enable reviews for all files
+  review_status: true
+
+  # Enable high-level summary
+  high_level_summary: true
+
+  # Disable poem
+  poem: false
+
+  # Path filters (optional)
+  # You can specify which files to include or exclude from reviews
+  path_filters:
+    - "**/*"
+    - "!**/*.lock"
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/.git/**"
+
+# Chat settings
+chat:
+  # Chat inherits the language setting from the top-level language setting
+
+# Set the tone of reviews
+tone_instructions: "Constructive and friendly"

@@ -1,0 +1,18 @@
+review:
+  level: 1
+  categories:
+    general:
+      description: 一般的なコードレビュー
+    security:
+      description: セキュリティ関連のレビュー
+    performance:
+      description: パフォーマンス関連のレビュー
+    design:
+      description: 設計・アーキテクチャのレビュー
+  ignore_paths:
+    - "**/*.lock"
+    - "**/*.sum"
+    - "**/vendor/**"
+    - "**/node_modules/**"
+  language_instructions:
+    default: 日本語でコメントやサジェストを書いてください。

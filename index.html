@@ -20,41 +20,52 @@
             --sidebar-width: 280px;
             --header-height: 70px;
             
-            /* 洗練されたカラーパレット */
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --primary-color: #667eea;
-            --primary-dark: #5a6fd8;
-            --accent-color: #00d4ff;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --info-color: #3b82f6;
+            /* Apple-inspired refined color palette */
+            --primary-color: #007AFF;
+            --primary-dark: #0056CC;
+            --primary-light: #CCE7FF;
+            --accent-color: #5856D6;
+            --success-color: #34C759;
+            --warning-color: #FF9F0A;
+            --danger-color: #FF453A;
+            --info-color: #64D2FF;
             
-            /* 背景色 */
-            --bg-primary: #fafbfc;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #ffffff;
+            /* 背景色 - よりApple的な階層 */
+            --bg-primary: #FBFBFD;
+            --bg-secondary: #F2F2F7;
+            --bg-tertiary: #FFFFFF;
+            --bg-grouped: #F2F2F7;
             
-            /* テキストカラー */
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
+            /* テキストカラー - Apple HIG準拠 */
+            --text-primary: #1C1C1E;
+            --text-secondary: #3A3A3C;
+            --text-tertiary: #48484A;
+            --text-muted: #8E8E93;
             
-            /* シャドウ */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            /* Apple-like shadows */
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+            --shadow-strong: 0 8px 32px 0 rgba(0, 0, 0, 0.16);
+            --shadow-hover: 0 12px 48px 0 rgba(0, 0, 0, 0.2);
             
-            /* ボーダー */
-            --border-radius: 12px;
-            --border-radius-lg: 16px;
-            --border-radius-xl: 20px;
+            /* ボーダー - Apple風の丸み */
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+            --border-radius-2xl: 20px;
             
-            /* トランジション */
-            --transition-fast: all 0.15s ease;
-            --transition-normal: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Apple-like transitions */
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-normal: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            
+            /* Apple spacing system */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
         }
         
         * {
@@ -62,26 +73,29 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
-            letter-spacing: -0.01em;
-            line-height: 1.6;
+            letter-spacing: -0.003em;
+            line-height: 1.47;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* サイドバー */
+        /* サイドバー - Apple風の洗練されたデザイン */
         .sidebar {
             position: fixed;
             top: 0;
             left: 0;
             height: 100vh;
             width: var(--sidebar-width);
-            background: var(--primary-gradient);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-xl);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: var(--shadow-medium);
             z-index: 1000;
             transition: var(--transition-slow);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(0, 0, 0, 0.04);
         }
         
         .sidebar::before {
@@ -92,48 +106,50 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(180deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.05) 50%, 
-                rgba(0, 0, 0, 0.05) 100%);
+                rgba(255, 255, 255, 0.02) 0%, 
+                rgba(0, 0, 0, 0.01) 100%);
             pointer-events: none;
         }
         
         .sidebar .logo {
-            padding: 1.5rem;
+            padding: var(--spacing-xl) var(--spacing-lg);
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             position: relative;
         }
         
         .sidebar .logo h4 {
-            color: white;
+            color: var(--text-primary);
             margin: 0;
             font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.375rem;
+            letter-spacing: -0.022em;
+            line-height: 1.2;
         }
         
         .sidebar .logo small {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-tertiary);
             font-weight: 500;
-            letter-spacing: 0.02em;
+            letter-spacing: -0.006em;
+            font-size: 0.875rem;
         }
         
         .sidebar .nav-item {
-            margin: 0.3rem 0.75rem;
+            margin: var(--spacing-xs) var(--spacing-md);
         }
         
         .sidebar .nav-link {
-            color: rgba(255, 255, 255, 0.85);
-            padding: 1rem 1.25rem;
+            color: var(--text-secondary);
+            padding: var(--spacing-md) var(--spacing-lg);
             border-radius: var(--border-radius);
             transition: var(--transition-normal);
-            border-left: 3px solid transparent;
+            border: none;
             font-weight: 500;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.006em;
             position: relative;
             overflow: hidden;
+            background: transparent;
+            font-size: 0.9375rem;
         }
         
         .sidebar .nav-link::before {
@@ -143,25 +159,26 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.05) 100%);
+            background: var(--primary-color);
             opacity: 0;
             transition: var(--transition-normal);
+            border-radius: var(--border-radius);
         }
         
-        .sidebar .nav-link:hover::before,
+        .sidebar .nav-link:hover::before {
+            opacity: 0.08;
+        }
+        
         .sidebar .nav-link.active::before {
-            opacity: 1;
+            opacity: 0.12;
         }
         
         .sidebar .nav-link:hover,
         .sidebar .nav-link.active {
-            color: white;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-left-color: var(--accent-color);
-            transform: translateX(4px);
-            box-shadow: var(--shadow-md);
+            color: var(--text-primary);
+            background-color: transparent;
+            transform: none;
+            box-shadow: none;
         }
         
         .sidebar .nav-link i {
@@ -170,7 +187,7 @@
             font-size: 1.1rem;
         }
         
-        /* メインコンテンツ */
+        /* メインコンテンツ - Apple風の洗練されたレイアウト */
         .main-content {
             margin-left: var(--sidebar-width);
             min-height: 100vh;
@@ -178,12 +195,12 @@
         }
         
         .topbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: var(--shadow-sm);
-            padding: 1.25rem 2.5rem;
-            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-light);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -191,23 +208,24 @@
         
         .topbar #page-title {
             font-weight: 700;
-            font-size: 1.75rem;
-            letter-spacing: -0.02em;
+            font-size: 1.875rem;
+            letter-spacing: -0.025em;
             color: var(--text-primary);
             margin: 0;
+            line-height: 1.2;
         }
         
         .content-area {
-            padding: 0 2.5rem 2.5rem;
+            padding: 0 var(--spacing-2xl) var(--spacing-2xl);
         }
         
-        /* カード */
+        /* カード - Apple風の洗練されたデザイン */
         .stat-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: var(--bg-tertiary);
+            backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             transition: var(--transition-normal);
             position: relative;
             overflow: hidden;
@@ -219,98 +237,99 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: var(--primary-gradient);
+            height: 2px;
+            background: var(--primary-color);
             opacity: 0;
             transition: var(--transition-normal);
         }
         
         .stat-card:hover::before {
-            opacity: 1;
+            opacity: 0.8;
         }
         
         .stat-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px) scale(1.005);
+            box-shadow: var(--shadow-medium);
         }
         
         .stat-card .card-body {
-            padding: 2rem;
+            padding: var(--spacing-xl);
         }
         
         .stat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--border-radius);
+            width: 56px;
+            height: 56px;
+            border-radius: var(--border-radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             color: white;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-light);
             transition: var(--transition-normal);
         }
         
         .stat-card:hover .stat-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.05);
         }
         
         .icon-primary { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-color);
         }
         .icon-success { 
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            background: var(--success-color);
         }
         .icon-warning { 
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            background: var(--warning-color);
         }
         .icon-info { 
-            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            background: var(--info-color);
         }
         
         .stat-card .h4 {
-            font-weight: 800;
-            font-size: 2rem;
-            letter-spacing: -0.02em;
+            font-weight: 700;
+            font-size: 1.875rem;
+            letter-spacing: -0.025em;
             color: var(--text-primary);
             margin-bottom: 0;
+            line-height: 1.1;
         }
         
         .stat-card .text-muted {
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
         }
         
-        /* テーブル */
+        /* テーブル - Apple風の洗練されたデザイン */
         .table-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: var(--bg-tertiary);
+            backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             overflow: hidden;
         }
         
         .table-container .card-header {
-            background: rgba(248, 250, 252, 0.8);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 1.5rem 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: var(--spacing-lg) var(--spacing-xl);
             font-weight: 600;
             color: var(--text-primary);
         }
         
         .table thead th {
-            background: rgba(248, 250, 252, 0.5);
+            background: var(--bg-secondary);
             border: none;
-            font-weight: 700;
-            color: var(--text-primary);
-            padding: 1.25rem 1.5rem;
-            letter-spacing: -0.01em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: var(--spacing-lg) var(--spacing-lg);
+            letter-spacing: -0.006em;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
         }
         
         .table tbody tr {
@@ -318,24 +337,25 @@
         }
         
         .table tbody tr:hover {
-            background: rgba(102, 126, 234, 0.05);
-            transform: scale(1.001);
+            background: rgba(0, 122, 255, 0.04);
+            transform: none;
         }
         
         .table tbody td {
-            padding: 1.25rem 1.5rem;
-            border-color: rgba(0, 0, 0, 0.06);
+            padding: var(--spacing-lg);
+            border-color: rgba(0, 0, 0, 0.04);
             vertical-align: middle;
         }
         
-        /* ボタン */
+        /* ボタン - Apple風の洗練されたデザイン */
         .btn {
             border-radius: var(--border-radius);
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            font-weight: 500;
+            letter-spacing: -0.006em;
             transition: var(--transition-normal);
             position: relative;
             overflow: hidden;
+            font-size: 0.9375rem;
         }
         
         .btn::before {
@@ -347,7 +367,7 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.2) 50%, 
                 transparent 100%);
             transition: var(--transition-normal);
         }
@@ -357,15 +377,15 @@
         }
         
         .btn-primary {
-            background: var(--primary-gradient);
+            background: var(--primary-color);
             border: none;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-light);
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #6a4190 100%);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
         }
         
         .btn-outline-primary {
@@ -375,96 +395,101 @@
         
         .btn-outline-primary:hover {
             background: var(--primary-color);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            transform: none;
+            box-shadow: var(--shadow-light);
         }
         
-        /* カード */
+        /* カード - 全般的なApple風デザイン */
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: var(--bg-tertiary);
+            backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             transition: var(--transition-normal);
         }
         
         .card:hover {
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--shadow-medium);
         }
         
         .card-header {
-            background: rgba(248, 250, 252, 0.8);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 1.5rem 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: var(--spacing-lg) var(--spacing-xl);
             font-weight: 600;
             color: var(--text-primary);
         }
         
         .card-header h6 {
-            font-weight: 700;
-            letter-spacing: -0.01em;
+            font-weight: 600;
+            letter-spacing: -0.006em;
             margin: 0;
+            font-size: 0.9375rem;
         }
         
         .card-body {
-            padding: 2rem;
+            padding: var(--spacing-xl);
         }
         
-        /* バッジ */
+        /* バッジ - Apple風の洗練されたデザイン */
         .badge {
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.5rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
             border-radius: var(--border-radius);
-            letter-spacing: 0.01em;
+            letter-spacing: -0.003em;
+            text-transform: uppercase;
         }
         
-        /* フォーム */
+        /* フォーム - Apple風の洗練されたデザイン */
         .form-control {
             border-radius: var(--border-radius);
             border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.75rem 1rem;
-            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 400;
             transition: var(--transition-normal);
+            font-size: 0.9375rem;
         }
         
         .form-control:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
-            transform: scale(1.01);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+            transform: none;
         }
         
         .form-select {
             border-radius: var(--border-radius);
             border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.75rem 1rem;
-            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 400;
             transition: var(--transition-normal);
+            font-size: 0.9375rem;
         }
         
         .form-select:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
         
-        /* ドロップダウン */
+        /* ドロップダウン - Apple風の洗練されたデザイン */
         .dropdown-menu {
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow-medium);
+            backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255, 255, 255, 0.98);
         }
         
         .dropdown-item {
-            padding: 0.75rem 1.25rem;
-            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 400;
             transition: var(--transition-fast);
+            font-size: 0.9375rem;
         }
         
         .dropdown-item:hover {
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(0, 122, 255, 0.08);
             color: var(--primary-color);
         }
         
@@ -526,22 +551,22 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
         
-        /* スクロールバーのスタイリング */
+        /* スクロールバー - Apple風の洗練されたデザイン */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(0, 0, 0, 0.02);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: rgba(102, 126, 234, 0.3);
-            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(102, 126, 234, 0.5);
+            background: rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -1344,8 +1369,8 @@
                         datasets: [{
                             label: 'アクセス数',
                             data: [12000, 19000, 15000, 25000, 22000, 30000, 28000, 35000, 32000, 40000, 38000, 45000],
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderColor: '#007AFF',
+                            backgroundColor: 'rgba(0, 122, 255, 0.1)',
                             tension: 0.4,
                             fill: true
                         }]
@@ -1412,11 +1437,11 @@
                         datasets: [{
                             data: [125, 98, 76, 54, 32],
                             backgroundColor: [
-                                '#667eea',
-                                '#56ab2f',
-                                '#f093fb',
-                                '#4facfe',
-                                '#f5576c'
+                                '#007AFF',
+                                '#34C759',
+                                '#5856D6',
+                                '#64D2FF',
+                                '#FF9F0A'
                             ]
                         }]
                     },
@@ -1459,7 +1484,7 @@
                         datasets: [{
                             label: 'アクセス数',
                             data: [32000, 28000, 35000, 40000, 38000, 45000],
-                            backgroundColor: 'rgba(102, 126, 234, 0.8)'
+                            backgroundColor: 'rgba(0, 122, 255, 0.8)'
                         }]
                     },
                     options: {

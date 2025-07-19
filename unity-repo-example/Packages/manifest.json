@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "com.unity.ide.rider": "3.0.0",
+    "com.unity.ide.visualstudio": "2.0.3",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "nuget.microsoft.unity.analyzers": "2.0.3",
+    "nuget.stylecop.analyzers": "1.2.0-beta.435"
+  },
+  "scopedRegistries": [
+    {
+      "name": "Mika-f",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "mika-f"
+      ]
+    }
+  ],
+  "testables": [
+    "com.unity.test-framework"
+  ]
+}

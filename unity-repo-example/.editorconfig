@@ -1,0 +1,42 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+
+# Unity specific C# rules
+dotnet_diagnostic.CA1822.severity = warning
+csharp_style_var_elsewhere = true:suggestion
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+
+# Unity specific suppressions
+dotnet_diagnostic.IDE0051.severity = none  # Unity uses reflection for many callbacks
+dotnet_diagnostic.IDE0052.severity = none  # Unity serialized fields may appear unused
+
+# StyleCop rules
+dotnet_diagnostic.SA1600.severity = none  # Elements should be documented (too strict for Unity)
+dotnet_diagnostic.SA1633.severity = none  # File should have header (not needed for Unity)
+dotnet_diagnostic.SA1200.severity = none  # Using directives should be placed correctly
+dotnet_diagnostic.SA1309.severity = none  # Field names should not begin with underscore
+
+# Enforce some important rules
+dotnet_diagnostic.SA1028.severity = error  # Code should not contain trailing whitespace
+dotnet_diagnostic.SA1505.severity = error  # Opening braces should not be followed by blank line
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false

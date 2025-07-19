@@ -24,6 +24,10 @@ namespace UnityRepoExample.VRChat
         private float lastInteractionTime;
         private VRCPlayerApi localPlayer;
         
+        // マテリアルプロパティブロック（パフォーマンス最適化）
+        private MaterialPropertyBlock materialPropertyBlock;
+        private Renderer targetRenderer;
+        
         /// <summary>
         /// Udon の Start イベント
         /// </summary>
@@ -31,6 +35,10 @@ namespace UnityRepoExample.VRChat
         {
             // ローカルプレイヤーの取得
             localPlayer = Networking.LocalPlayer;
+            
+            // MaterialPropertyBlock の初期化
+            materialPropertyBlock = new MaterialPropertyBlock();
+            targetRenderer = GetComponent<Renderer>();
             
             // 必要なコンポーネントの検証
             ValidateComponents();
@@ -92,15 +100,15 @@ namespace UnityRepoExample.VRChat
         }
         
         /// <summary>
-        /// 視覚的な状態を更新します
+        /// 視覚的な状態を更新します（MaterialPropertyBlock使用でパフォーマンス最適化）
         /// </summary>
         private void UpdateVisualState()
         {
-            // マテリアルの色変更などの視覚的フィードバック
-            var renderer = GetComponent<Renderer>();
-            if (renderer != null)
+            // MaterialPropertyBlock を使用してマテリアルの色変更
+            if (targetRenderer != null && materialPropertyBlock != null)
             {
-                renderer.material.color = isInteracted ? Color.green : Color.white;
+                materialPropertyBlock.SetColor("_Color", isInteracted ? Color.green : Color.white);
+                targetRenderer.SetPropertyBlock(materialPropertyBlock);
             }
         }
         

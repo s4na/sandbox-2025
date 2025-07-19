@@ -6,6 +6,7 @@ namespace UnityRepoExample
     /// プレイヤーの移動とアニメーションを制御するコンポーネント
     /// Unity.Analyzers と StyleCop.Analyzers のサンプルとして作成
     /// </summary>
+    [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public class PlayerController : MonoBehaviour
     {
         [Header("移動設定")]

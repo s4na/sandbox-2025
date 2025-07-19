@@ -21,7 +21,7 @@
 
 ## 📁 プロジェクト構成
 
-```
+```text
 unity-repo-example/
 ├── .editorconfig                    # フォーマット設定
 ├── .github/workflows/
@@ -57,13 +57,13 @@ dotnet restore
 
 ### 3. プリコミットフックの設定
 
-#### Windows の場合:
+#### Windows の場合
 ```cmd
 # .git/hooks/pre-commit として pre-commit.bat をコピー
 copy pre-commit.bat .git\hooks\pre-commit
 ```
 
-#### Unix/Linux/Mac の場合:
+#### Unix/Linux/Mac の場合
 ```bash
 # .git/hooks/pre-commit として pre-commit.sh をコピー
 cp pre-commit.sh .git/hooks/pre-commit
